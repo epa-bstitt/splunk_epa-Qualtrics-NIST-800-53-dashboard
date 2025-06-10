@@ -1,0 +1,31 @@
+_time,control_id,event_type,system,description,severity,status
+2025-06-08T06:30:00,AC-3,violation,System-A,"Unauthorized access attempt to restricted resource",high,open
+2025-06-08T05:45:12,AC-3,violation,System-A,"Privilege escalation detected",high,open
+2025-06-07T22:15:30,AC-3,compliance,System-A,"Access control review completed",info,closed
+2025-06-07T18:20:45,AC-3,violation,System-A,"Multiple failed login attempts",medium,closed
+2025-06-07T14:10:22,AC-3,remediation,System-A,"Updated access control policy",info,closed
+2025-06-08T07:05:18,AC-4,violation,System-B,"Data exfiltration attempt detected",high,open
+2025-06-08T02:30:45,AC-4,violation,System-B,"Unauthorized cross-domain data transfer",high,open
+2025-06-07T19:45:33,AC-4,violation,System-B,"Information flow policy violation",medium,closed
+2025-06-07T15:20:10,AC-4,remediation,System-B,"Flow control rules updated",info,closed
+2025-06-07T09:15:22,AC-4,compliance,System-B,"Information flow controls audit",info,closed
+2025-06-08T05:10:15,CM-2,violation,System-A,"Unauthorized configuration change detected",high,open
+2025-06-08T01:25:30,CM-2,violation,System-A,"Baseline configuration drift detected",high,open
+2025-06-07T21:40:12,CM-2,violation,System-A,"Unapproved software installation",medium,closed
+2025-06-07T17:15:45,CM-2,remediation,System-A,"Configuration baseline updated",info,closed
+2025-06-07T12:30:22,CM-2,compliance,System-A,"Configuration compliance scan",info,closed
+2025-06-08T06:45:30,RA-5,violation,System-B,"Critical vulnerability detected",high,open
+2025-06-08T04:20:15,RA-5,violation,System-B,"Vulnerability scan failure",medium,open
+2025-06-08T00:10:45,RA-5,violation,System-B,"Missed vulnerability scan window",medium,open
+2025-06-07T20:35:22,RA-5,remediation,System-B,"Vulnerability remediation plan created",info,closed
+2025-06-07T16:15:10,RA-5,compliance,System-B,"Vulnerability assessment completed",info,closed
+2025-06-08T07:15:45,SC-3,violation,System-B,"Security function bypass attempt",high,open
+2025-06-08T03:40:22,SC-3,violation,System-B,"Security function isolation failure",high,open
+2025-06-07T23:25:10,SC-3,violation,System-B,"Unauthorized security function modification",high,closed
+2025-06-07T19:10:45,SC-3,remediation,System-B,"Security function isolation review",info,closed
+2025-06-07T14:45:22,SC-3,compliance,System-B,"Security function testing completed",info,closed
+2025-06-08T06:20:10,SI-4,violation,System-B,"Intrusion detection system failure",high,open
+2025-06-08T02:15:45,SI-4,violation,System-B,"Monitoring system offline",high,open
+2025-06-07T22:40:22,SI-4,violation,System-B,"Log collection interruption",medium,closed
+2025-06-07T18:25:10,SI-4,remediation,System-B,"Monitoring system configuration updated",info,closed
+2025-06-07T13:10:45,SI-4,compliance,System-B,"System monitoring review completed",info,closed

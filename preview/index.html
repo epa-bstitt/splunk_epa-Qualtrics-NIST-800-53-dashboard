@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST 800-53 Compliance Dashboard Preview</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="dashboard-header">
+                    <h2>NIST 800-53 Compliance Overview</h2>
+                    <div class="dashboard-filters">
+                        <label for="time-range">Time Range:</label>
+                        <select id="time-range" class="input-dropdown">
+                            <option value="24h">Last 24 Hours</option>
+                            <option value="7d" selected>Last 7 Days</option>
+                            <option value="30d">Last 30 Days</option>
+                            <option value="90d">Last 90 Days</option>
+                        </select>
+                        
+                        <label for="control-family">Control Family:</label>
+                        <select id="control-family" class="input-dropdown">
+                            <option value="all" selected>All Families</option>
+                            <option value="AC">AC - Access Control</option>
+                            <option value="AT">AT - Awareness and Training</option>
+                            <option value="AU">AU - Audit and Accountability</option>
+                            <option value="CA">CA - Assessment, Authorization, and Monitoring</option>
+                            <option value="CM">CM - Configuration Management</option>
+                            <option value="CP">CP - Contingency Planning</option>
+                            <option value="IA">IA - Identification and Authentication</option>
+                            <option value="IR">IR - Incident Response</option>
+                            <option value="MA">MA - Maintenance</option>
+                            <option value="MP">MP - Media Protection</option>
+                            <option value="PE">PE - Physical and Environmental Protection</option>
+                            <option value="PL">PL - Planning</option>
+                            <option value="PM">PM - Program Management</option>
+                            <option value="PS">PS - Personnel Security</option>
+                            <option value="RA">RA - Risk Assessment</option>
+                            <option value="SA">SA - System and Services Acquisition</option>
+                            <option value="SC">SC - System and Communications Protection</option>
+                            <option value="SI">SI - System and Information Integrity</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Overall Compliance Score</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="compliance-score" class="metric-container">
+                            <div class="score-value" style="color: #65a637;">87.5%</div>
+                            <div class="score-label">Overall Compliance</div>
+                            <div class="score-details">
+                                <span class="detail-item"><span class="dot" style="background-color: #65a637;"></span> Compliant: 21</span>
+                                <span class="detail-item"><span class="dot" style="background-color: #f8be34;"></span> Partial: 5</span>
+                                <span class="detail-item"><span class="dot" style="background-color: #d93f3c;"></span> Non-Compliant: 4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Compliance by Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="compliance-status-chart" class="chart-container">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Risk Distribution</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="risk-distribution-chart" class="chart-container">
+                            <canvas id="riskChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Compliance by Control Family</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="family-compliance-chart" class="chart-container">
+                            <canvas id="familyChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Compliance Trend</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="compliance-trend-chart" class="chart-container">
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Top Non-Compliant Controls</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="non-compliant-table" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Control ID</th>
+                                        <th>Control Name</th>
+                                        <th>Risk Level</th>
+                                        <th>System</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>AC-4</td>
+                                        <td>Information Flow Enforcement</td>
+                                        <td><span class="badge badge-danger">High</span></td>
+                                        <td>System-A</td>
+                                        <td><span class="status-badge non-compliant">Non-Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CM-2</td>
+                                        <td>Baseline Configuration</td>
+                                        <td><span class="badge badge-danger">High</span></td>
+                                        <td>System-A</td>
+                                        <td><span class="status-badge non-compliant">Non-Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>RA-5</td>
+                                        <td>Vulnerability Scanning</td>
+                                        <td><span class="badge badge-danger">High</span></td>
+                                        <td>System-B</td>
+                                        <td><span class="status-badge non-compliant">Non-Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SC-3</td>
+                                        <td>Security Function Isolation</td>
+                                        <td><span class="badge badge-danger">High</span></td>
+                                        <td>System-B</td>
+                                        <td><span class="status-badge non-compliant">Non-Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SI-4</td>
+                                        <td>Information System Monitoring</td>
+                                        <td><span class="badge badge-danger">High</span></td>
+                                        <td>System-B</td>
+                                        <td><span class="status-badge non-compliant">Non-Compliant</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Control Details</h5>
+                        <div>
+                            <select id="selected-control-family" class="input-dropdown">
+                                <option value="*">All</option>
+                                <option value="AC">Access Control (AC)</option>
+                                <option value="AT">Awareness and Training (AT)</option>
+                                <option value="AU">Audit and Accountability (AU)</option>
+                                <option value="CA">Assessment, Authorization, and Monitoring (CA)</option>
+                                <option value="CM">Configuration Management (CM)</option>
+                                <option value="CP">Contingency Planning (CP)</option>
+                                <option value="IA">Identification and Authentication (IA)</option>
+                                <option value="IR">Incident Response (IR)</option>
+                                <option value="MA">Maintenance (MA)</option>
+                                <option value="MP">Media Protection (MP)</option>
+                                <option value="PE">Physical and Environmental Protection (PE)</option>
+                                <option value="PL">Planning (PL)</option>
+                                <option value="PM">Program Management (PM)</option>
+                                <option value="PS">Personnel Security (PS)</option>
+                                <option value="RA">Risk Assessment (RA)</option>
+                                <option value="SA">System and Services Acquisition (SA)</option>
+                                <option value="SC">System and Communications Protection (SC)</option>
+                                <option value="SI">System and Information Integrity (SI)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="control-details-table" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Control ID</th>
+                                        <th>Control Name</th>
+                                        <th>Implementation Status</th>
+                                        <th>Assessment Date</th>
+                                        <th>Responsible Party</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>AC-1</td>
+                                        <td>Access Control Policy and Procedures</td>
+                                        <td><span class="status-badge compliant">Implemented</span></td>
+                                        <td>2025-05-15</td>
+                                        <td>Security Team</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AC-2</td>
+                                        <td>Account Management</td>
+                                        <td><span class="status-badge compliant">Implemented</span></td>
+                                        <td>2025-05-15</td>
+                                        <td>IT Operations</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AC-3</td>
+                                        <td>Access Enforcement</td>
+                                        <td><span class="status-badge partial">Partially Implemented</span></td>
+                                        <td>2025-05-16</td>
+                                        <td>IT Operations</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AC-4</td>
+                                        <td>Information Flow Enforcement</td>
+                                        <td><span class="status-badge non-compliant">Not Implemented</span></td>
+                                        <td>2025-05-16</td>
+                                        <td>Security Team</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AC-5</td>
+                                        <td>Separation of Duties</td>
+                                        <td><span class="status-badge compliant">Implemented</span></td>
+                                        <td>2025-05-17</td>
+                                        <td>HR Department</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.DS_Store
+*.pyc
+__pycache__/
+*.log
+.env
+venv/
+*.tar.gz
+*.spl
+*.splunkbase
+*.splunkbase.sha512
+*.splunkbase.md5

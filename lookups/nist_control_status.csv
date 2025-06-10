@@ -1,0 +1,31 @@
+control_id,control_name,control_family,compliance_status,risk_level,last_check_time,system
+AC-1,"Access Control Policy and Procedures",AC,compliant,high,2025-06-01T12:00:00,System-A
+AC-2,"Account Management",AC,compliant,high,2025-06-01T12:00:00,System-A
+AC-3,"Access Enforcement",AC,partial,high,2025-06-01T12:00:00,System-A
+AC-4,"Information Flow Enforcement",AC,non-compliant,medium,2025-06-01T12:00:00,System-A
+AC-5,"Separation of Duties",AC,compliant,medium,2025-06-01T12:00:00,System-B
+AC-6,"Least Privilege",AC,partial,high,2025-06-01T12:00:00,System-B
+AU-1,"Audit and Accountability Policy and Procedures",AU,compliant,medium,2025-06-01T12:00:00,System-A
+AU-2,"Audit Events",AU,partial,high,2025-06-01T12:00:00,System-A
+AU-3,"Content of Audit Records",AU,compliant,medium,2025-06-01T12:00:00,System-B
+AU-4,"Audit Storage Capacity",AU,compliant,low,2025-06-01T12:00:00,System-B
+CM-1,"Configuration Management Policy and Procedures",CM,compliant,medium,2025-06-01T12:00:00,System-A
+CM-2,"Baseline Configuration",CM,non-compliant,high,2025-06-01T12:00:00,System-A
+CM-3,"Configuration Change Control",CM,partial,medium,2025-06-01T12:00:00,System-B
+CM-4,"Security Impact Analysis",CM,compliant,medium,2025-06-01T12:00:00,System-B
+IA-1,"Identification and Authentication Policy and Procedures",IA,compliant,high,2025-06-01T12:00:00,System-A
+IA-2,"Identification and Authentication (Organizational Users)",IA,compliant,high,2025-06-01T12:00:00,System-A
+IA-3,"Device Identification and Authentication",IA,partial,medium,2025-06-01T12:00:00,System-B
+IA-4,"Identifier Management",IA,compliant,medium,2025-06-01T12:00:00,System-B
+RA-1,"Risk Assessment Policy and Procedures",RA,compliant,medium,2025-06-01T12:00:00,System-A
+RA-2,"Security Categorization",RA,compliant,high,2025-06-01T12:00:00,System-A
+RA-3,"Risk Assessment",RA,partial,high,2025-06-01T12:00:00,System-B
+RA-5,"Vulnerability Scanning",RA,non-compliant,high,2025-06-01T12:00:00,System-B
+SC-1,"System and Communications Protection Policy and Procedures",SC,compliant,medium,2025-06-01T12:00:00,System-A
+SC-2,"Application Partitioning",SC,compliant,medium,2025-06-01T12:00:00,System-A
+SC-3,"Security Function Isolation",SC,non-compliant,high,2025-06-01T12:00:00,System-B
+SC-4,"Information in Shared Resources",SC,partial,medium,2025-06-01T12:00:00,System-B
+SI-1,"System and Information Integrity Policy and Procedures",SI,compliant,medium,2025-06-01T12:00:00,System-A
+SI-2,"Flaw Remediation",SI,partial,high,2025-06-01T12:00:00,System-A
+SI-3,"Malicious Code Protection",SI,compliant,high,2025-06-01T12:00:00,System-B
+SI-4,"Information System Monitoring",SI,non-compliant,high,2025-06-01T12:00:00,System-B

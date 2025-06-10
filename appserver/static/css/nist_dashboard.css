@@ -1,0 +1,207 @@
+/**
+ * NIST 800-53 Compliance Dashboard Styles
+ */
+
+/* Dashboard header */
+.dashboard-header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.dashboard-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-filters label {
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.input-dropdown {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* Metric container */
+.metric-container {
+    text-align: center;
+    padding: 20px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-value {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.score-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.score-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Panel styling */
+.panel-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Chart customization */
+.chart {
+    margin-top: 10px;
+}
+
+/* Table customization */
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table > thead > tr > th {
+    background-color: #eee;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Status indicators */
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.status-compliant {
+    background-color: #65a637;
+}
+
+.status-partial {
+    background-color: #f8be34;
+}
+
+.status-noncompliant {
+    background-color: #d93f3c;
+}
+
+.status-na {
+    background-color: #999999;
+}
+
+/* Control family badges */
+.control-family-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #337ab7;
+    margin-right: 5px;
+}
+
+/* Severity indicators */
+.severity-high {
+    color: #d93f3c;
+    font-weight: bold;
+}
+
+.severity-medium {
+    color: #f8be34;
+    font-weight: bold;
+}
+
+.severity-low {
+    color: #65a637;
+}
+
+/* Modal customization */
+.modal-header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+
+.modal-title {
+    font-weight: 500;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Button styling */
+.btn {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #1e6cb0;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.btn-default {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .score-value {
+        font-size: 36px;
+    }
+    
+    .score-details {
+        flex-direction: column;
+        align-items: center;
+    }
+}

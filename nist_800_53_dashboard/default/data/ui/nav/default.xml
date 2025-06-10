@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<nav search_view="search">
+  <view name="nist_dashboard" default="true" />
+  <view name="search" />
+  <view name="dashboards" />
+</nav>

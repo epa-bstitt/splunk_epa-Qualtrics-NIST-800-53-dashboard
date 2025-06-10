@@ -1,0 +1,13 @@
+[default]
+access = read : [ * ], write : [ admin ]
+export = system
+
+[views/nist_dashboard]
+access = read : [ * ], write : [ admin ]
+export = system
+
+[app/install]
+export = system
+
+[app/ui]
+export = system
