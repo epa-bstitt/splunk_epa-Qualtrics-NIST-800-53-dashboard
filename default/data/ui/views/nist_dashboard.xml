@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8"?>
+<?xml version="1.2" encoding="UTF-8"?>
 <dashboard script="js/nist_dashboard.js" stylesheet="css/nist_dashboard.css">
   <label>NIST 800-53 Compliance Dashboard</label>
   <description>Monitor and report on NIST 800-53 security controls compliance</description>
@@ -22,37 +22,6 @@
         <option name="underLabel">Compliance</option>
       </single>
     </panel>
-    
-    <panel>
-      <title>Compliance by Status</title>
-      <chart>
-        <search>
-          <query>| inputlookup nist_control_status.csv 
-          | stats count by compliance_status 
-          | eval percent=round(count/sum(count)*100, 2)</query>
-          <earliest>-7d@d</earliest>
-          <latest>now</latest>
-        </search>
-        <option name="charting.chart">pie</option>
-        <option name="charting.drilldown">all</option>
-      </chart>
-    </panel>
-    
-    <panel>
-      <title>Risk Distribution</title>
-      <chart>
-        <search>
-          <query>| inputlookup nist_control_status.csv 
-          | search compliance_status="non-compliant" OR compliance_status="partial" 
-          | stats count by risk_level 
-          | eval percent=round(count/sum(count)*100, 2)</query>
-          <earliest>-7d@d</earliest>
-          <latest>now</latest>
-        </search>
-        <option name="charting.chart">pie</option>
-      </chart>
-    </panel>
-  </row>
   
   <row>
     <panel>
